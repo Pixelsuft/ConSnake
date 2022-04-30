@@ -13,7 +13,7 @@ class Game:
             self
     ) -> None:
         super(Game, self).__init__()
-        self.field = (78, 23)
+        self.field = (78, 22)
         self.offset = [0, 0]
         self.apple = [0, 0]
         self.snake = [[4, 1], [3, 1], [2, 1], [1, 1]]

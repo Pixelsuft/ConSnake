@@ -33,14 +33,14 @@ elif system_dir_name == 'linux':
         arch_dir_name = 'x86_64'
     if arch_dir_name not in ('arm', 'arm64', 'x86', 'x86_64'):
         raise OSError(f'No Support For {arch_dir_name.title()} Yet!')
-    os.environ['FMOD_LIBRARY_PATH'] = f'libfmod{l_str}.so'
-    ctypes.CDLL(os.path.join(
+    os.environ['FMOD_LIBRARY_PATH'] = os.path.join(
         defines.CWD,
         'fmod',
         'linux',
         arch_dir_name,
-        os.getenv('FMOD_LIBRARY_PATH')
-    ))
+        f'libfmod{l_str}.so'
+    )
+    ctypes.CDLL(os.getenv('FMOD_LIBRARY_PATH'))
 else:
     raise OSError(f'No Support For {system_dir_name.title()} Yet!')
 
